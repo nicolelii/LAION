@@ -1,1 +1,4 @@
 venv
+tmp
+images
+*.npy
