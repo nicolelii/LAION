@@ -1,5 +1,4 @@
 import code
-import wordfreq
 import nltk
 
 import torch
@@ -8,7 +7,7 @@ import numpy as np
 
 
 with open('tmp/caps.txt', 'r') as f:
-    candidates = f.read().split('\n')[:80]
+    candidates = f.read().split('\n')
 
 model, preprocess = clip.load("ViT-B/32", device="cpu")
 

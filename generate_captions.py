@@ -7,7 +7,7 @@ ds = load_dataset("laion/laion400m", split="train", streaming=True)
 url_iter = iter(ds["url"])
 cap_iter = iter(ds["caption"])
 
-caps = [next(cap_iter) for _ in range(10000)]
+caps = [next(cap_iter) for _ in range(100000)]
 
 toks = [nltk.word_tokenize(cap.lower()) for cap in caps if cap is not None]
 
@@ -23,9 +23,7 @@ appearances = [(tag, sum(
         tag in caption_tok for caption_tok in toks))
     for tag in filtered]
 
-top_k = sorted(appearances, key=lambda x: x[1], reverse=True)[:200]
-print(top_k)
-
+top_k = sorted(appearances, key=lambda x: x[1], reverse=True)[:1000]
 
 
 with open("tmp/caps.txt", "w") as f:
